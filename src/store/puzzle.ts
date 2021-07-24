@@ -92,9 +92,9 @@ class Puzzle {
     let draggableBlockPosition = this.draggablePositions.find(
       (e) => e.x === position.x && e.y === position.y
     );
-    if (draggableBlockPosition as Position) {
+    if (draggableBlockPosition) {
       let draggableBlock = this.blocks.find(
-        (e) => e.position.x === draggableBlockPosition.x && e.position.y === draggableBlockPosition.y
+        (e) => e.position.x === draggableBlockPosition?.x && e.position.y === draggableBlockPosition?.y
       ) as Block;
       let tempPosition = {
         x: draggableBlock.position.x,
