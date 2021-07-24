@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <Block />
+      <Block title={1} position={{ x: 0, y: 0 }}></Block>
     </div>
   );
 }
