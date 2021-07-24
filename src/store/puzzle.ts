@@ -1,5 +1,14 @@
 import { makeAutoObservable } from "mobx";
 
+interface Position {
+  x: number;
+  y: number;
+}
+interface Block {
+  position: Position;
+  title: number;
+}
+
 class Puzzle {
   blocks = [
     {
@@ -62,16 +71,39 @@ class Puzzle {
       position: { x: 2, y: 3 },
       title: 15,
     },
-  ];
+  ] as Block[];
+
+  freePosition = { x: 3, y: 3 };
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  tl() {
-    // this.blocks[0].title = 16;
-    this.blocks[4].position.x = 4;
-    console.log("fjf");
+  get draggablePositions() {
+    return [
+      { x: this.freePosition.x - 1, y: this.freePosition.y },
+      { x: this.freePosition.x, y: this.freePosition.y - 1 },
+      { x: this.freePosition.x + 1, y: this.freePosition.y },
+      { x: this.freePosition.x, y: this.freePosition.y + 1 },
+    ];
+  }
+
+  draggable(position: Position) {
+    let draggableBlockPosition = this.draggablePositions.find(
+      (e) => e.x === position.x && e.y === position.y
+    );
+    if (draggableBlockPosition as Position) {
+      let draggableBlock = this.blocks.find(
+        (e) => e.position.x === draggableBlockPosition.x && e.position.y === draggableBlockPosition.y
+      ) as Block;
+      let tempPosition = {
+        x: draggableBlock.position.x,
+        y: draggableBlock.position.y,
+      };
+      draggableBlock.position.x = this.freePosition.x;
+      draggableBlock.position.y = this.freePosition.y;
+      this.freePosition = tempPosition;
+    }
   }
 }
 

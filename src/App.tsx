@@ -3,7 +3,7 @@ import "./reset.css";
 import "./App.css";
 
 import puzzle from "./store/puzzle";
-import { Block } from "./Block";
+import Block from "./Block";
 import { observer } from "mobx-react-lite";
 
 const App = observer(() => {
