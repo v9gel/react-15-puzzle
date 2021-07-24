@@ -1,4 +1,33 @@
-.App {
+html {
   box-sizing: border-box;
-  display: block;
+  background-color: #d6d3f0ff;
 }
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App {
+  display: block;
+  width: 100vh;
+  height: 100vh;
+  min-width: 300px;
+  min-height: 300px;
+}
+
+
+/* --midnight-green-eagle-green: #0f5257ff;
+--gunmetal: #0b3142ff;
+--heliotrope-gray: #9c92a3ff;
+--languid-lavender: #c6b9cdff;
+--languid-lavender-2: #d6d3f0ff; */

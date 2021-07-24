@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import "./reset.css";
 import "./App.css";
 
+import puzzle from "./store/puzzle";
 import { Block } from "./Block";
+import { observer } from "mobx-react-lite";
 
-function App() {
+const App = observer(() => {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <Block title={1} position={{ x: 0, y: 0 }}></Block>
+      {puzzle.blocks.map((p) => (
+        <Block
+          key={p.title}
+          title={p.title}
+          position={{ x: p.position.x, y: p.position.y }}
+        ></Block>
+      ))}
     </div>
   );
-}
+});
 
 export default App;

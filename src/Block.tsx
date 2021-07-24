@@ -14,13 +14,13 @@ export const Block = (props: {
       style={{
         transform:
           "translate(" +
-          props.position.x * 100 +
-          "px, " +
-          props.position.y * 100 +
-          "px)",
+          ((props.position.x * 21)+8.5)+
+          "vh, " +
+          ((props.position.y * 21)+8.5)+
+          "vh)",
       }}
     >
-      {props.title}
+      <div>{props.title}</div>
     </div>
   );
 };
