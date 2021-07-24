@@ -16,8 +16,10 @@ const App = observer(() => {
           key={p.title}
           title={p.title}
           position={{ x: p.position.x, y: p.position.y }}
+          draggable={p.draggable}
         ></Block>
       ))}
+      <div className="steps">Ходов: {puzzle.countMoves}</div>
     </div>
   );
 });

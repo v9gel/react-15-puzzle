@@ -4,12 +4,14 @@ import { observer } from "mobx-react-lite";
 import puzzle from "./store/puzzle";
 
 const Block = observer(
-  (props: { position: { x: number; y: number }; title: number }) => {
-    const [position, setPosition] = useState(0);
-
+  (props: {
+    position: { x: number; y: number };
+    title: number;
+    draggable: boolean;
+  }) => {
     return (
       <div
-        className="block"
+        className={"block" + (props.draggable ? " draggable" : "")}
         onClick={() => puzzle.draggable(props.position)}
         style={{
           transform:

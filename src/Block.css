@@ -1,21 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
-
 .block {
   box-sizing: border-box;
   position: absolute;
-  background-color: #0F5257;
+  background-color: #0f5257;
   width: 20vh;
   height: 20vh;
-  border: 3px solid #0B3142;
+  border: 3px solid #0b3142;
   border-radius: 1vh;
   transition: transform 1s;
   min-height: 20vh;
   vertical-align: middle;
   font-size: 10vh;
-  font-family: "Courier Prime", monospace;
   color: #fff;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.draggable {
+  cursor: pointer;
+}
+
+.draggable:hover {
+  background-color: #0b3142;
 }

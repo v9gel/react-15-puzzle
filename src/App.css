@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
 html {
   box-sizing: border-box;
   background-color: #d6d3f0ff;
+  user-select: none;
+  color: #0b3142;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 4vh;
 }
 
 html,
@@ -8,6 +14,7 @@ body,
 #root {
   width: 100%;
   height: 100%;
+  cursor: default;
 }
 
 #root {
@@ -25,6 +32,11 @@ body,
   min-height: 300px;
 }
 
+.steps {
+  position: relative;
+  left: 10vh;
+  top: 94vh;
+}
 
 /* --midnight-green-eagle-green: #0f5257ff;
 --gunmetal: #0b3142ff;
