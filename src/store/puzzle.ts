@@ -134,6 +134,7 @@ class Puzzle {
         });
       });
       this.countMoves++;
+      new Audio('./click.mp3').play()
     }
   }
 }
