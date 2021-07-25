@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import click from '../click.mp3';
+import click from "../click.mp3";
 
 interface Position {
   x: number;
@@ -97,15 +97,21 @@ class Puzzle {
   }
 
   get draggablePositions() {
-    return [
-      { x: this.freePosition.x - 1, y: this.freePosition.y },
-      { x: this.freePosition.x, y: this.freePosition.y - 1 },
-      { x: this.freePosition.x + 1, y: this.freePosition.y },
-      { x: this.freePosition.x, y: this.freePosition.y + 1 },
-    ];
+    let positions = [];
+    this.freePosition.x - 1 >= 0 &&
+      positions.push({ x: this.freePosition.x - 1, y: this.freePosition.y });
+    this.freePosition.x + 1 <= 3 &&
+      positions.push({ x: this.freePosition.x + 1, y: this.freePosition.y });
+    this.freePosition.y - 1 >= 0 &&
+      positions.push({ x: this.freePosition.x, y: this.freePosition.y - 1 });
+    this.freePosition.y + 1 <= 3 &&
+      positions.push({ x: this.freePosition.x, y: this.freePosition.y + 1 });
+
+    return positions;
   }
 
-  draggable(position: Position) {
+  draggable(position: Position, userClick = true) {
+    console.log(position);
     let draggableBlockPosition = this.draggablePositions.find(
       (e) => e.x === position.x && e.y === position.y
     );
@@ -134,9 +140,25 @@ class Puzzle {
           }
         });
       });
-      this.countMoves++;
-      new Audio(click).play()
+
+      if (userClick) {
+        this.countMoves++;
+        new Audio(click).play();
+      }
     }
+  }
+
+  refresh() {
+    for (let i = 0; i < 200; i++) {
+      this.draggable(
+        this.draggablePositions[
+          Math.floor(Math.random() * this.draggablePositions.length)
+        ],
+        false
+      );
+    }
+
+    this.countMoves = 0;
   }
 }
 

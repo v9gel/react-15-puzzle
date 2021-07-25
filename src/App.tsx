@@ -21,8 +21,8 @@ const App = observer(() => {
         ></Block>
       ))}
       <div className="border">
-        <div className="steps">Ходов: {puzzle.countMoves}</div>
-        <img src={refresh} className="refresh" alt="refresh" />
+        <div className="steps"><b>Ходов: {puzzle.countMoves}</b></div>
+        <img src={refresh} className="refresh" alt="refresh"  onClick={() => puzzle.refresh()}/>
       </div>
 
       {/* <div className="steps">Ходов: {puzzle.countMoves}</div>

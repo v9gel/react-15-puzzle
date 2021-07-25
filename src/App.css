@@ -47,6 +47,7 @@ body,
   display: inline-block; */
   left: 10vh;
   top: 94vh;
+  font-weight: 600;
 }
 
 .refresh {
