@@ -32,9 +32,28 @@ body,
   min-height: 300px;
 }
 
-.steps {
+.border {
   position: relative;
+  width: 80vh;
+  top: 94vh;
   left: 10vh;
+  height: 4vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.steps {
+  /* position: relative;
+  display: inline-block; */
+  left: 10vh;
+  top: 94vh;
+}
+
+.refresh {
+  /* position: relative;
+  display: inline-block; */
+  cursor: pointer;
+  left: 73vh;
   top: 94vh;
 }
 

@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import click from '../click.mp3';
 
 interface Position {
   x: number;
@@ -134,7 +135,7 @@ class Puzzle {
         });
       });
       this.countMoves++;
-      new Audio('./click.mp3').play()
+      new Audio(click).play()
     }
   }
 }
